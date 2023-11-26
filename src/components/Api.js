@@ -17,6 +17,10 @@ export const fetchList = async () => {
 
 
     
-
+export const fetchMovie = async () => {
+    const response = await axios.get('/search/movie/');
+  return response.data.results;
+  
+}
 
 
