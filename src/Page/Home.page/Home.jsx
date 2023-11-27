@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import { fetchList } from '../Api';
+import { fetchList } from '../../components/Api';
 
 
 
 
 
-export default function Home ()  {
-    
+export default function Home() {
+
     const [trendingMovies, setTrendingMovies] = useState([]);
 
     useEffect(() => {
@@ -21,8 +21,8 @@ export default function Home ()  {
             }
         }
         searchMovieList();
-    },[] )
-   
+    }, [])
+
 
 
     return (
@@ -33,7 +33,7 @@ export default function Home ()  {
                     <li key={movie.id}>{movie.title}</li>
                 ))}
             </ul>
-       
+
         </div>
-      )
-  }
+    )
+}

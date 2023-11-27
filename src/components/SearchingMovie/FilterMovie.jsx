@@ -2,7 +2,7 @@
 import {  useState } from 'react';
 
 export const FilterMovie = ({ onSubmit }) => {
-    const [searchResults, setSearchResults] = useState('');
+    const [searchResults, setSearchResults] = useState([]);
 
 
     
@@ -31,7 +31,16 @@ export const FilterMovie = ({ onSubmit }) => {
 
                 />
                 <button type="submit">Submit</button>
-            </form>
-        </div>
+           </form>
+           <div>
+               <ul>
+                   {searchResults.map((item) => (
+                       <li key={item}>{item.query}</li>
+                   ))}
+
+               </ul>
+           </div>
+           </div>
+       
     )
 }
