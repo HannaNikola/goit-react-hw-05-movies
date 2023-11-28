@@ -6,7 +6,7 @@ export const Cast = () => {
 
     const [actors, setActors] = useState(null);
     const params = useParams();
-    console.log(params);
+    // console.log(params);
 
     useEffect(() => {
         async function getActorDeteils() {
@@ -27,7 +27,7 @@ export const Cast = () => {
             <Link>
                 <h1>Cast</h1>
             </Link>
-            {/* <p>{actors}</p> */}
+            <p>{actors}</p>
         </div>
     )
 }
