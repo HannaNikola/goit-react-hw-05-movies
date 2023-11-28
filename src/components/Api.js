@@ -29,8 +29,7 @@ export const fetchMovie = async (searchResults) => {
 
 export const fetchMovieDeteils = async (movieId )=> {
   const response = await axios.get(
-    `/movie/${movieId}&append_to_response=images`
-  );
+    `/movie/${movieId}`);
   return response.data;
   
   
