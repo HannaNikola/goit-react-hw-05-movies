@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState} from "react";
 import { fetchList } from '../../components/Api';
+import { Link } from "react-router-dom";
 
 
 
@@ -13,7 +14,7 @@ export default function Home() {
         const searchMovieList = async () => {
             try {
                 const movies = await fetchList();
-                console.log('Movies:', movies);
+                // console.log('Movies:', movies);
                 setTrendingMovies(movies);
 
             } catch (error) {
@@ -30,7 +31,8 @@ export default function Home() {
             <h1>Trending Today </h1>
             <ul>
                 {trendingMovies.map((movie) => (
-                    <li key={movie.id}>{movie.title}</li>
+
+                    <li key={movie.id}><Link to={`/movies/${movie.id}`}>{movie.title}</Link></li>
                 ))}
             </ul>
 

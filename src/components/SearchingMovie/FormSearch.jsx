@@ -1,7 +1,7 @@
 
 import {  useState } from 'react';
 
-export const FilterMovie = ({ onSubmit }) => {
+export const FormSearch = ({ onSubmit }) => {
     const [searchResults, setSearchResults] = useState([]);
 
 
@@ -9,7 +9,7 @@ export const FilterMovie = ({ onSubmit }) => {
     const handleSubmit = event => {
         event.preventDefault();
         onSubmit(searchResults);
-        console.log(searchResults);
+        // console.log(searchResults);
     }
 
     const handleChange =(event) => {
@@ -32,14 +32,6 @@ export const FilterMovie = ({ onSubmit }) => {
                 />
                 <button type="submit">Submit</button>
            </form>
-           <div>
-               <ul>
-                   {searchResults.map((item) => (
-                       <li key={item}>{item.query}</li>
-                   ))}
-
-               </ul>
-           </div>
            </div>
        
     )

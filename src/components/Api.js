@@ -21,12 +21,20 @@ export const fetchList = async () => {
 export const fetchMovie = async (searchResults) => {
   const response = await axios.get(`/search/movie?query=${searchResults}`);
   return response.data.results;
-  // console.log()
+
+  
   
 };
 
 
-// export const fetchMovieDeteils = async movie_id => {
-//   const response = await axios.get(`/movie/${movie_id}`);
-//   return response.data.id;
-// };
+export const fetchMovieDeteils = async (movieId )=> {
+  const response = await axios.get(
+    `/movie/${movieId}&append_to_response=images&language=en-US&include_image_language=en,null`
+  );
+  return response.data;
+  
+  
+};
+
+
+// https://api.themoviedb.org/3/movie/157336?api_key=a2883c737e33341efae828fe3a93a67d&append_to_response=videos,images
