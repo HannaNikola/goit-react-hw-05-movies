@@ -37,3 +37,15 @@ export const fetchMovieDeteils = async (movieId )=> {
 
 
 // https://api.themoviedb.org/3/movie/157336?api_key=a2883c737e33341efae828fe3a93a67d&append_to_response=videos,images
+
+export const fetchActors = async (movieId ) => {
+  const response = await axios.get(`/movie/${ movieId }/credits`) ;
+  return response.data;
+
+}
+
+
+export const fetcReview = async (movieId) => {
+  const response = await axios.get(`/movie/${movieId}/reviews`);
+  return response.data;
+};

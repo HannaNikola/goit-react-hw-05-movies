@@ -47,19 +47,3 @@ export const MovieDetails = () => {
     );
 };
 
-//     const [deteils, setDeteils] = useState({});
-
-//     useEffect(() => {
-//         const deteilsMovie = async () => {
-//             try {
-//                 const movie = await fetchMovieDeteils(deteils);
-//                 console.log(movie);
-//                 console.log('Movies:', movie);
-//                 setDeteils(movie);
-
-//             } catch (error) {
-//                 console.log('something wrong', error);
-//             }
-//         }
-//         deteilsMovie();
-// }, [])
