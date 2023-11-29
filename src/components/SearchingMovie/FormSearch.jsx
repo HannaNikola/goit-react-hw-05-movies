@@ -1,5 +1,7 @@
 
-import {  useState } from 'react';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { ButonSubmit, FormSerach, TitelSearch } from './FormSearch.styled';
 
 export const FormSearch = ({ onSubmit }) => {
     const [searchResults, setSearchResults] = useState([]);
@@ -19,9 +21,10 @@ export const FormSearch = ({ onSubmit }) => {
     }
 
    return (
-        <div>
-            <h1>Find movie</h1>
-            <form onSubmit={handleSubmit}>
+       <div>
+           <Link to="/">Back to .. </Link>
+           <TitelSearch>Find movie</TitelSearch>
+           <FormSerach onSubmit={handleSubmit}>
                 {/* <label > </label> */}
                 <input
                     type="text"
@@ -30,8 +33,8 @@ export const FormSearch = ({ onSubmit }) => {
                     onChange={handleChange}
 
                 />
-                <button type="submit">Submit</button>
-           </form>
+               <ButonSubmit type="submit">Search</ButonSubmit>
+           </FormSerach>
            </div>
        
     )

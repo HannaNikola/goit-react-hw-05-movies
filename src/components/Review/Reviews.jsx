@@ -34,6 +34,7 @@ export const Reviews = () => {
     return (
         <div> {review &&
             <>
+                <Link to="/">Back to .. </Link>
                 <Link >
                 <h1>Review</h1>
                 </Link>

@@ -25,6 +25,7 @@ export const Cast = () => {
 
     return (
         <div>
+            <Link to="/">Back to .. </Link>
             <Link>
                 <h1>Cast</h1>
             </Link>
@@ -33,6 +34,7 @@ export const Cast = () => {
                     <li key={actor.id}><img
                         src={actor.profile_path ? `https://image.tmdb.org/t/p/w500/${actor.profile_path}` :
                             '<https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=1000x700>'}
+                        width={250}
                         alt={actor.title}
                     /> 
                         <p>{actor.name}</p>

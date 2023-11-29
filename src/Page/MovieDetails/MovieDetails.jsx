@@ -1,8 +1,11 @@
-import { useParams, NavLink, Outlet } from 'react-router-dom';
+import { useParams, Outlet } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-
-
+import { Link, NavLink } from 'react-router-dom';
+// import { LinkReview } from './MovieDeteils.styled';
 import { fetchMovieDeteils } from 'components/Api';
+
+
+
 
 export const MovieDetails = () => {
 
@@ -31,9 +34,11 @@ export const MovieDetails = () => {
 
             {deteils && (
                 <div>
+                    <Link to="/">Back to .. </Link>
                     <img
                         src={deteils.poster_path ? `https://image.tmdb.org/t/p/w500/${deteils.poster_path}` :
-                            '<https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=1000x700>'}
+                            '<https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=400x500>'}
+                        width={250}
                         alt={deteils.title}
                     />
 

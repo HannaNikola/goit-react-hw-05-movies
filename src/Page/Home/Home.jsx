@@ -1,6 +1,7 @@
 import { useEffect, useState} from "react";
 import { fetchList } from '../../components/Api';
 import { Link } from "react-router-dom";
+import { ListMovie } from './Home.styled';
 
 
 
@@ -32,7 +33,7 @@ export default function Home() {
             <ul>
                 {trendingMovies.map((movie) => (
 
-                    <li key={movie.id}><Link to={`/movies/${movie.id}`}>{movie.title}</Link></li>
+                    <ListMovie key={movie.id}><Link to={`/movies/${movie.id}`}>{movie.title}</Link></ListMovie>
                 ))}
             </ul>
 

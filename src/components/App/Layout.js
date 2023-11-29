@@ -1,23 +1,45 @@
 import styled from "styled-components";
-import { NavLink, Outlet } from "react-router-dom";
+import {  Link, Outlet } from "react-router-dom";
 
 
 export const Conteiner = styled.div`
-display: flex;
-flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  
 `;
 
 export const Layout = () => {
   return (
     <Conteiner>
       <header>
-        <nav>
-          <NavLink to="/">Home</NavLink>
-          <NavLink to="/movies">Movies</NavLink>
-          {/* <NavLink to="movies/{movie.id}">Datails</NavLink> */}
-        </nav>
+        <BoxLink>
+          <StyledNavLink to="/">Home</StyledNavLink>
+          <StyledNavLink to="/movies">Movies</StyledNavLink>
+         
+        </BoxLink>
       </header>
       <Outlet />
     </Conteiner>
   );
 };
+
+const BoxLink = styled.nav`
+  padding: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  gap: 30px;
+  
+`;
+
+const StyledNavLink = styled(Link)`
+ 
+  text-decoration: none;
+  color: black;
+  
+  font-weight: bold;
+
+  &:hover {
+    text-decoration: underline;
+  }
+`;

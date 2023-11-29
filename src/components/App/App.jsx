@@ -4,7 +4,7 @@ import Movies from "../../Page/Movies/Movies";
 import Home from "../../Page/Home/Home";
 import { MovieDetails } from "Page/MovieDetails/MovieDetails";
 import { Cast } from '../../components/Cast/Cast';
-import { Reviews } from '../../components/Revie/Reviews';
+import { Reviews } from '../Review/Reviews';
 
 
 export const App = () => {

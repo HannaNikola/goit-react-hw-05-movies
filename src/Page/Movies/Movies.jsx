@@ -39,6 +39,7 @@ export default function Movies() {
 
     return (
         <div>
+            
             <FormSearch onSubmit={handleSubmit} />
             <div>
                 <ul>
