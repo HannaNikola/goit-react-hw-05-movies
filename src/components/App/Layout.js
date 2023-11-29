@@ -14,8 +14,7 @@ export const Layout = () => {
         <nav>
           <NavLink to="/">Home</NavLink>
           <NavLink to="/movies">Movies</NavLink>
-          {/* <NavLink to="movies/:movieId">Datails</NavLink> */}
-         
+          {/* <NavLink to="movies/{movie.id}">Datails</NavLink> */}
         </nav>
       </header>
       <Outlet />

@@ -7,7 +7,7 @@ import { fetchReview } from "components/Api";
 export const Reviews = () => {
 
     const [review, setReview] = useState([]);
-    console.log(review);
+    // console.log(review);
     const params = useParams();
 
 
@@ -19,7 +19,8 @@ export const Reviews = () => {
             try {
 
                 const reviewDeteils = await fetchReview(params.movieId);
-                setReview(reviewDeteils);
+                setReview(reviewDeteils.results);
+                // console.log(reviewDeteils);
 
             } catch (error) {
                 console.log('something wrong', error);
@@ -38,9 +39,9 @@ export const Reviews = () => {
                 </Link>
             <ul>
                 {review.map((item) => (
-                    <li key={item.id}>
-                        <p>{item.results.author_details.username}</p>
-                        <p>{item.results.content}</p>
+                    <li key={item.id} >
+                        <p>{item.author}</p>
+                        <p>{item.content}</p>
                     </li>
                 ))}
                 </ul>

@@ -12,8 +12,8 @@ export const Cast = () => {
         async function getActorDeteils() {
             try {
                 const actorDeteils = await fetchActors(params.movieId);
-                setActors(actorDeteils);
-                // console.log(data)
+                setActors(actorDeteils.cast);
+                // console.log(actorDeteils)
             } catch (error) {
                 console.log('something wrong', error);
             }
@@ -28,14 +28,18 @@ export const Cast = () => {
             <Link>
                 <h1>Cast</h1>
             </Link>
-            <ul>
-                {actors.map((item) => (
-                    <li key={item.id}><img src={item.profile_path} alt="" />
-                        <p>{item.name}</p>
-                        <p>{item.character}</p>
+            {actors && ( <ul>
+                {actors.map((actor) => (
+                    <li key={actor.id}><img
+                        src={actor.profile_path ? `https://image.tmdb.org/t/p/w500/${actor.profile_path}` :
+                            '<https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=1000x700>'}
+                        alt={actor.title}
+                    /> 
+                        <p>{actor.name}</p>
+                        <p>{actor.character}</p>
                     </li>
                 ))}
-             </ul>
+             </ul>)}
         </div>)
     
 }

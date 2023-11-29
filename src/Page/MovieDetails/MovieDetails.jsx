@@ -1,7 +1,6 @@
 import { useParams, NavLink, Outlet } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-// import { Cast } from '../../components/Cast/Cast';
-// import { Reviews } from '../../components/Revie/Reviews';
+
 
 import { fetchMovieDeteils } from 'components/Api';
 
