@@ -4,7 +4,7 @@ import { fetchActors } from "components/Api";
 
 export const Cast = () => {
 
-    const [actors, setActors] = useState(null);
+    const [actors, setActors] = useState([]);
     const params = useParams();
     // console.log(params);
 
@@ -13,6 +13,7 @@ export const Cast = () => {
             try {
                 const actorDeteils = await fetchActors(params.movieId);
                 setActors(actorDeteils);
+                // console.log(data)
             } catch (error) {
                 console.log('something wrong', error);
             }
@@ -27,7 +28,15 @@ export const Cast = () => {
             <Link>
                 <h1>Cast</h1>
             </Link>
-            <p>{actors}</p>
-        </div>
-    )
+            <ul>
+                {actors.map((item) => (
+                    <li key={item.id}><img src={item.profile_path} alt="" />
+                        <p>{item.name}</p>
+                        <p>{item.character}</p>
+                    </li>
+                ))}
+             </ul>
+        </div>)
+    
 }
+

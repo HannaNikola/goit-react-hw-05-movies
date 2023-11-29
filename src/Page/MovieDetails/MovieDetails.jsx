@@ -1,4 +1,4 @@
-import { useParams,NavLink, Outlet } from 'react-router-dom';
+import { useParams, NavLink, Outlet } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 // import { Cast } from '../../components/Cast/Cast';
 // import { Reviews } from '../../components/Revie/Reviews';
@@ -6,9 +6,9 @@ import { useEffect, useState } from 'react';
 import { fetchMovieDeteils } from 'components/Api';
 
 export const MovieDetails = () => {
-    
+
     const [deteils, setDeteils] = useState(null);
-    
+
 
     const params = useParams();
     // console.log(params);
@@ -18,7 +18,6 @@ export const MovieDetails = () => {
             try {
                 const movieDateils = await fetchMovieDeteils(params.movieId);
                 setDeteils(movieDateils);
-                // console.log(deteils);
             } catch (error) {
                 console.log('something wrong', error);
             }
@@ -27,9 +26,9 @@ export const MovieDetails = () => {
     }, [params.movieId]);
 
     return (
-        
+
         <div>
-            
+
 
             {deteils && (
                 <div>
@@ -47,12 +46,12 @@ export const MovieDetails = () => {
                     <p>{deteils.genres && deteils.genres[0].name}</p>
                 </div>
             )}
-           
+
             <nav>
-                <NavLink to="/movies/:movieId/reviews">Reviews</NavLink>
-                <NavLink to="/movies/:movieId/cast">Cast</NavLink>
-                 </nav>
-             <Outlet />
+                <NavLink to={`/movies/${params.movieId}/reviews`}>Reviews</NavLink>
+                <NavLink to={`/movies/${params.movieId}/cast`}>Cast</NavLink>
+            </nav>
+            <Outlet />
         </div>
     );
 };
@@ -61,4 +60,4 @@ export const MovieDetails = () => {
 
 
 
-        
+
