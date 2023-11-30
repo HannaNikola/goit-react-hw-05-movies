@@ -1,9 +1,8 @@
 import { useParams, Outlet } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
-// import { LinkReview } from './MovieDeteils.styled';
 import { fetchMovieDeteils } from 'components/Api';
-
+import { GoArrowLeft } from "react-icons/go";
 
 
 
@@ -34,7 +33,7 @@ export const MovieDetails = () => {
 
             {deteils && (
                 <div>
-                    <Link to="/">Back to .. </Link>
+                    <Link to="/"><GoArrowLeft />Back to .. </Link>
                     <img
                         src={deteils.poster_path ? `https://image.tmdb.org/t/p/w500/${deteils.poster_path}` :
                             '<https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=400x500>'}
@@ -55,8 +54,8 @@ export const MovieDetails = () => {
                 <NavLink to={`/movies/${params.movieId}/reviews`}>Reviews</NavLink>
                 <NavLink to={`/movies/${params.movieId}/cast`}>Cast</NavLink>
             </nav>
-            <Outlet />
-        </div>
+           <Outlet />
+            </div>
     );
 };
 

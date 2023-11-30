@@ -1,12 +1,17 @@
 import { useParams, Link } from "react-router-dom";
 import { useEffect, useState } from 'react';
 import { fetchActors } from "components/Api";
+import { useLocation } from "react-router-dom";
 
 export const Cast = () => {
 
     const [actors, setActors] = useState([]);
     const params = useParams();
     // console.log(params);
+ 
+    const location = useLocation();
+    
+    // console.log(location);
 
     useEffect(() => {
         async function getActorDeteils() {
@@ -24,8 +29,9 @@ export const Cast = () => {
 
 
     return (
+    
         <div>
-            <Link to="/">Back to .. </Link>
+            <Link to={`/movies/${params.movieId}` ?? "/movies/"} state={{ from: location }}>Back to .. </Link>
             <Link>
                 <h1>Cast</h1>
             </Link>

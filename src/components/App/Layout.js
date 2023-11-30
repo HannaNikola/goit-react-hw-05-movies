@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import {  Link, Outlet } from "react-router-dom";
-
+import { Suspense } from "react";
 
 export const Conteiner = styled.div`
   display: flex;
@@ -16,10 +16,11 @@ export const Layout = () => {
         <BoxLink>
           <StyledNavLink to="/">Home</StyledNavLink>
           <StyledNavLink to="/movies">Movies</StyledNavLink>
-         
         </BoxLink>
       </header>
-      <Outlet />
+      <Suspense >
+        <Outlet />
+      </Suspense>
     </Conteiner>
   );
 };
