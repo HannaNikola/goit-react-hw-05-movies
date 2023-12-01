@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams, useLocation } from "react-router-dom";
 import { fetchReview } from "components/Api";
 import { TitleReview, LinkBack } from "./Review.styled"
-
+import { GoArrowLeft } from "react-icons/go";
 
 
 export const Reviews = () => {
@@ -36,7 +36,7 @@ export const Reviews = () => {
     return (
         <div> {review &&
             <>
-            <LinkBack to={`/movies/${params.movieId}` ?? "/movies/"} state={{ from: location }}>Back to .. </LinkBack>
+            <LinkBack to={`/movies/${params.movieId}` ?? "/movies/"} state={{ from: location }}><GoArrowLeft />Back to .. </LinkBack>
              <TitleReview >Review</TitleReview >
             <ul>
                 {review.map((item) => (

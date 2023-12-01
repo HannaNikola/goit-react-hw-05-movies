@@ -12,7 +12,7 @@ export const BoxDeteils = styled.div`
 `;
 
 export const LinkBack = styled(Link)`
-  color: black;
+  color: red;
   text-decoration: none;
   font-weight: 400;
   text-transform: uppercase;
@@ -27,7 +27,8 @@ export const StyledLink = styled(NavLink)`
   text-decoration: none;
   font-weight: 800;
   text-transform: uppercase;
-
+  margin-right: 30px;
+  
   &:hover {
     color: orangered;
   }

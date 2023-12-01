@@ -2,8 +2,8 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from 'react';
 import { fetchActors } from "components/Api";
 import { useLocation } from "react-router-dom";
-import { Title, LinkBack } from "./Cast.styled";
-
+import { Title, LinkBack, ListMovie, BoxList, ImageActor } from "./Cast.styled";
+import { GoArrowLeft } from "react-icons/go";
 
 
 export const Cast = () => {
@@ -34,12 +34,12 @@ export const Cast = () => {
     return (
     
         <div>
-            <LinkBack to={`/movies/${params.movieId}` ?? "/movies/"} state={{ from: location }}>Back to .. </LinkBack>
+            <LinkBack to={`/movies/${params.movieId}` ?? "/movies/"} state={{ from: location }}><GoArrowLeft />Back to .. </LinkBack>
             <Title>Cast</Title>
             
-            {actors && ( <ul>
+            {actors && (<BoxList>
                 {actors.map((actor) => (
-                    <li key={actor.id}><img
+                    <ListMovie key={actor.id}><ImageActor
                         src={actor.profile_path ? `https://image.tmdb.org/t/p/w500/${actor.profile_path}` :
                            ' https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=1000x700'}
                         width={250}
@@ -47,9 +47,9 @@ export const Cast = () => {
                     /> 
                         <p>{actor.name}</p>
                         <p>{actor.character}</p>
-                    </li>
+                    </ListMovie>
                 ))}
-                </ul>)}
+            </BoxList>)}
             
         </div>)
     

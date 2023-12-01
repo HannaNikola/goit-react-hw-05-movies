@@ -9,7 +9,7 @@ export const TitleReview = styled.h1`
 `;
 
 export const LinkBack = styled(Link)`
-  color: black;
+  color: red;
   text-decoration: none;
   font-weight: 400;
   text-transform: uppercase;

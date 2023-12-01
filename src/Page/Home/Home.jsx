@@ -1,6 +1,6 @@
 import { useEffect, useState} from "react";
 import { fetchList } from '../../components/Api';
-import { LinkStyle } from './Home.styled';
+import { ListMovie } from "components/ListMovies/ListMovies";
 
 
 
@@ -28,13 +28,7 @@ export default function Home() {
     return (
         <div>
             <h1>Trending Today </h1>
-            <ul>
-                {trendingMovies.map((movie) => (
-
-                    <li key={movie.id}><LinkStyle to={`/movies/${movie.id}`}>{movie.title}</LinkStyle></li>
-                ))}
-            </ul>
-
-        </div>
+            <ListMovie movies={trendingMovies} />
+         </div>
     )
 }

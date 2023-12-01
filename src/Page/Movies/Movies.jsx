@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import { FormSearch } from '../../components/SearchingMovie/FormSearch';
 import { fetchMovie } from '../../components/Api';
-import { LinkStyle } from './Movies.styled'
+import { ListMovie } from 'components/ListMovies/ListMovies';
 
 
 
@@ -43,14 +43,8 @@ export default function Movies() {
             
             <FormSearch onSubmit={handleSubmit} />
             <div>
-                <ul>
-                    
-                    {searchResults.map((item) => (
-                        <li key={item.id}><LinkStyle to={`/movies/${item.id}`}>{item.title}</LinkStyle></li>
-                       
-                    ))}
-                
-                </ul>
+                <ListMovie movies={searchResults} />
+            
             </div>
         </div>
     )

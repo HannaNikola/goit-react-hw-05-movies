@@ -26,7 +26,7 @@ export const MovieDetails = () => {
     }, [params.movieId]);
 
     return (
-
+        <>
         <BoxDeteils>
         {deteils && (
                 <div>
@@ -47,12 +47,15 @@ export const MovieDetails = () => {
                 </div>
                 
             )}
+        
             <nav>
                 <StyledLink to={`/movies/${params.movieId}/reviews`}>Reviews</StyledLink>
                 <StyledLink to={`/movies/${params.movieId}/cast`}>Cast</StyledLink>
             </nav>
-           <Outlet />
-        </BoxDeteils>
+                <Outlet />
+            </BoxDeteils>
+          
+        </>
     );
 };
 
