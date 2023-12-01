@@ -2,6 +2,20 @@ import { useParams, Link } from "react-router-dom";
 import { useEffect, useState } from 'react';
 import { fetchActors } from "components/Api";
 import { useLocation } from "react-router-dom";
+import styled from "styled-components";
+import { Title} from "./Cast.styled";
+
+const LinkBack = styled(Link)`
+color: black;
+  text-decoration: none;
+  font-weight: 400;
+  text-transform: uppercase;
+
+  &:hover {
+    color: orangered;
+  }
+`
+
 
 export const Cast = () => {
 
@@ -31,10 +45,9 @@ export const Cast = () => {
     return (
     
         <div>
-            <Link to={`/movies/${params.movieId}` ?? "/movies/"} state={{ from: location }}>Back to .. </Link>
-            <Link>
-                <h1>Cast</h1>
-            </Link>
+            <LinkBack to={`/movies/${params.movieId}` ?? "/movies/"} state={{ from: location }}>Back to .. </LinkBack>
+            <Title>Cast</Title>
+            
             {actors && ( <ul>
                 {actors.map((actor) => (
                     <li key={actor.id}><img
@@ -47,7 +60,8 @@ export const Cast = () => {
                         <p>{actor.character}</p>
                     </li>
                 ))}
-             </ul>)}
+                </ul>)}
+            
         </div>)
     
 }

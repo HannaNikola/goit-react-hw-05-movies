@@ -37,7 +37,6 @@ const StyledNavLink = styled(Link)`
  
   text-decoration: none;
   color: black;
-  
   font-weight: bold;
 
   &:hover {

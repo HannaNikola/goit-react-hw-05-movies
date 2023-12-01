@@ -1,8 +1,19 @@
 import { useEffect, useState } from "react";
 import { useParams, Link, useLocation } from "react-router-dom";
 import { fetchReview } from "components/Api";
+import styled from "styled-components";
+import { TitleReview } from "./Review.styled"
 
+const LinkBack = styled(Link)`
+color: black;
+  text-decoration: none;
+  font-weight: 400;
+  text-transform: uppercase;
 
+  &:hover {
+    color: orangered;
+  }
+`
 
 export const Reviews = () => {
     const location = useLocation();
@@ -35,10 +46,8 @@ export const Reviews = () => {
     return (
         <div> {review &&
             <>
-            <Link to={`/movies/${params.movieId}` ?? "/movies/"} state={{ from: location }}>Back to .. </Link>
-                <Link >
-                <h1>Review</h1>
-                </Link>
+            <LinkBack to={`/movies/${params.movieId}` ?? "/movies/"} state={{ from: location }}>Back to .. </LinkBack>
+             <TitleReview >Review</TitleReview >
             <ul>
                 {review.map((item) => (
                     <li key={item.id} >

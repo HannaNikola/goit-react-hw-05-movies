@@ -1,10 +1,31 @@
-import { useParams, Outlet } from 'react-router-dom';
+import { useParams, Outlet, Link, NavLink } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
 import { fetchMovieDeteils } from 'components/Api';
 import { GoArrowLeft } from "react-icons/go";
+import styled from 'styled-components';
+import { BoxDeteils } from './MovieDeteils.styled'
 
 
+const LinkBack = styled(Link)`
+color: black;
+  text-decoration: none;
+  font-weight: 400;
+  text-transform: uppercase;
+
+  &:hover {
+    color: orangered;
+  }
+`
+const StyledLink = styled(NavLink)`
+color: black;
+  text-decoration: none;
+  font-weight: 800;
+  text-transform: uppercase;
+
+  &:hover {
+    color: orangered;
+  }
+`
 
 export const MovieDetails = () => {
 
@@ -28,12 +49,10 @@ export const MovieDetails = () => {
 
     return (
 
-        <div>
-
-
-            {deteils && (
+        <BoxDeteils>
+        {deteils && (
                 <div>
-                    <Link to="/"><GoArrowLeft />Back to .. </Link>
+                    <LinkBack to="/"><GoArrowLeft />Back to .. </LinkBack>
                     <img
                         src={deteils.poster_path ? `https://image.tmdb.org/t/p/w500/${deteils.poster_path}` :
                             '<https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=400x500>'}
@@ -51,11 +70,11 @@ export const MovieDetails = () => {
             )}
 
             <nav>
-                <NavLink to={`/movies/${params.movieId}/reviews`}>Reviews</NavLink>
-                <NavLink to={`/movies/${params.movieId}/cast`}>Cast</NavLink>
+                <StyledLink to={`/movies/${params.movieId}/reviews`}>Reviews</StyledLink>
+                <StyledLink to={`/movies/${params.movieId}/cast`}>Cast</StyledLink>
             </nav>
            <Outlet />
-            </div>
+        </BoxDeteils>
     );
 };
 

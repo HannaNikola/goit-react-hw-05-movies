@@ -1,10 +1,19 @@
 import { useEffect, useState} from "react";
 import { fetchList } from '../../components/Api';
 import { Link } from "react-router-dom";
-import { ListMovie } from './Home.styled';
+import styled from 'styled-components';
 
 
+const LinkStyle = styled(Link)`
+color: black;
+  text-decoration: none;
+  font-weight: 500;
+  text-transform: uppercase;
 
+  &:hover {
+    color: orangered;
+  }
+`
 
 
 export default function Home() {
@@ -33,7 +42,7 @@ export default function Home() {
             <ul>
                 {trendingMovies.map((movie) => (
 
-                    <ListMovie key={movie.id}><Link to={`/movies/${movie.id}`}>{movie.title}</Link></ListMovie>
+                    <li key={movie.id}><LinkStyle to={`/movies/${movie.id}`}>{movie.title}</LinkStyle></li>
                 ))}
             </ul>
 
