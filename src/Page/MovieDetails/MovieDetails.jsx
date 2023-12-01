@@ -1,31 +1,9 @@
-import { useParams, Outlet, Link, NavLink } from 'react-router-dom';
+import { useParams, Outlet} from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { fetchMovieDeteils } from 'components/Api';
 import { GoArrowLeft } from "react-icons/go";
-import styled from 'styled-components';
-import { BoxDeteils } from './MovieDeteils.styled'
+import { BoxDeteils, LinkBack, StyledLink } from './MovieDeteils.styled'
 
-
-const LinkBack = styled(Link)`
-color: black;
-  text-decoration: none;
-  font-weight: 400;
-  text-transform: uppercase;
-
-  &:hover {
-    color: orangered;
-  }
-`
-const StyledLink = styled(NavLink)`
-color: black;
-  text-decoration: none;
-  font-weight: 800;
-  text-transform: uppercase;
-
-  &:hover {
-    color: orangered;
-  }
-`
 
 export const MovieDetails = () => {
 
@@ -55,7 +33,7 @@ export const MovieDetails = () => {
                     <LinkBack to="/"><GoArrowLeft />Back to .. </LinkBack>
                     <img
                         src={deteils.poster_path ? `https://image.tmdb.org/t/p/w500/${deteils.poster_path}` :
-                            '<https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=400x500>'}
+                            'https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=400x500'}
                         width={250}
                         alt={deteils.title}
                     />
@@ -67,8 +45,8 @@ export const MovieDetails = () => {
                     <h3>Genres</h3>
                     <p>{deteils.genres && deteils.genres[0].name}</p>
                 </div>
+                
             )}
-
             <nav>
                 <StyledLink to={`/movies/${params.movieId}/reviews`}>Reviews</StyledLink>
                 <StyledLink to={`/movies/${params.movieId}/cast`}>Cast</StyledLink>

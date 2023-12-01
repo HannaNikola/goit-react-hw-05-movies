@@ -2,21 +2,9 @@
 import { useEffect, useState } from 'react';
 import { FormSearch } from '../../components/SearchingMovie/FormSearch';
 import { fetchMovie } from '../../components/Api';
-import { Link } from 'react-router-dom';
-import styled from 'styled-components';
+import { LinkStyle } from './Movies.styled'
 
-const LinkStyle = styled(Link)`
-color: black;
-  text-decoration: none;
-  font-weight: 500;
-  text-transform: uppercase;
-  display: flex;
-  gap: 30px;
 
-  &:hover {
-    color: orangered;
-  }
-`
 
 
 

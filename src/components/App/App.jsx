@@ -6,6 +6,7 @@ import { Cast } from '../../components/Cast/Cast';
 import { Reviews } from '../Review/Reviews';
 
 
+
 const Home = lazy(() => import('../../Page/Home/Home'));
 const Movies = lazy(() => import('../../Page/Movies/Movies'));
 
@@ -18,10 +19,10 @@ export const App = () => {
                 <Route path="/" element={<Layout/>}>
                     <Route index element={<Home/>} />
                     <Route path="movies" element={<Movies/>} />
-                    <Route path="movies/:movieId" element={<MovieDetails/>} />
-                    <Route path="/movies/:movieId/reviews" element={<Reviews/>} />
-                    <Route path="/movies/:movieId/cast" element={<Cast/>} />
-                    
+                    <Route path="movies/:movieId" element={<MovieDetails/>} >
+                    <Route path="reviews" element={<Reviews/>} />
+                    <Route path="cast" element={<Cast/>} />
+                    </Route >
                 </Route>
                 
             </Routes>

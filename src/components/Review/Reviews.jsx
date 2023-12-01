@@ -1,19 +1,9 @@
 import { useEffect, useState } from "react";
-import { useParams, Link, useLocation } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 import { fetchReview } from "components/Api";
-import styled from "styled-components";
-import { TitleReview } from "./Review.styled"
+import { TitleReview, LinkBack } from "./Review.styled"
 
-const LinkBack = styled(Link)`
-color: black;
-  text-decoration: none;
-  font-weight: 400;
-  text-transform: uppercase;
 
-  &:hover {
-    color: orangered;
-  }
-`
 
 export const Reviews = () => {
     const location = useLocation();

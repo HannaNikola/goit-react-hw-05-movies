@@ -1,17 +1,8 @@
-import { useSearchParams, Link } from  'react-router-dom' ;
+import { useSearchParams} from  'react-router-dom' ;
 import { ButonSubmit, FormSerach, TitelSearch } from './FormSearch.styled';
-import styled from "styled-components";
 
-const LinkBack = styled(Link)`
-color: black;
-  text-decoration: none;
-  font-weight: 400;
-  text-transform: uppercase;
 
-  &:hover {
-    color: orangered;
-  }
-`
+
 
 export const FormSearch = ({ onSubmit }) => {
     
@@ -30,7 +21,7 @@ export const FormSearch = ({ onSubmit }) => {
 
         return (
             <div>
-                <LinkBack to="/">Back to Home </LinkBack>
+              
                 <TitelSearch>Find movie</TitelSearch>
                 <FormSerach onSubmit={handleSubmit}>
                     {/* <label > </label> */}

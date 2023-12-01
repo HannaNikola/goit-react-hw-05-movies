@@ -1,19 +1,8 @@
 import { useEffect, useState} from "react";
 import { fetchList } from '../../components/Api';
-import { Link } from "react-router-dom";
-import styled from 'styled-components';
+import { LinkStyle } from './Home.styled';
 
 
-const LinkStyle = styled(Link)`
-color: black;
-  text-decoration: none;
-  font-weight: 500;
-  text-transform: uppercase;
-
-  &:hover {
-    color: orangered;
-  }
-`
 
 
 export default function Home() {

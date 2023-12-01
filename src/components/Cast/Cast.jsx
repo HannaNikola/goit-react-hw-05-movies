@@ -1,20 +1,9 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useEffect, useState } from 'react';
 import { fetchActors } from "components/Api";
 import { useLocation } from "react-router-dom";
-import styled from "styled-components";
-import { Title} from "./Cast.styled";
+import { Title, LinkBack } from "./Cast.styled";
 
-const LinkBack = styled(Link)`
-color: black;
-  text-decoration: none;
-  font-weight: 400;
-  text-transform: uppercase;
-
-  &:hover {
-    color: orangered;
-  }
-`
 
 
 export const Cast = () => {
@@ -52,7 +41,7 @@ export const Cast = () => {
                 {actors.map((actor) => (
                     <li key={actor.id}><img
                         src={actor.profile_path ? `https://image.tmdb.org/t/p/w500/${actor.profile_path}` :
-                            '<https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=1000x700>'}
+                           ' https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=1000x700'}
                         width={250}
                         alt={actor.title}
                     /> 
