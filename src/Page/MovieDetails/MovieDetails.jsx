@@ -1,4 +1,4 @@
-import { useParams, Outlet} from 'react-router-dom';
+import { useParams, Outlet, useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { fetchMovieDeteils } from 'components/Api';
 import { GoArrowLeft } from "react-icons/go";
@@ -6,6 +6,8 @@ import { BoxDeteils, LinkBack, StyledLink } from './MovieDeteils.styled'
 
 
 export const MovieDetails = () => {
+    const location = useLocation();
+    console.log(location);
 
     const [deteils, setDeteils] = useState(null);
 
@@ -24,13 +26,14 @@ export const MovieDetails = () => {
         }
         getDeteilMovie();
     }, [params.movieId]);
-
+    console.log(location)
+    
     return (
         <>
         <BoxDeteils>
         {deteils && (
                 <div>
-                    <LinkBack to="/"><GoArrowLeft />Back to .. </LinkBack>
+                        <LinkBack to={location.state?.from ?? '/'} state={{ from: location }} ><GoArrowLeft />Back to .. </LinkBack>
                     <img
                         src={deteils.poster_path ? `https://image.tmdb.org/t/p/w500/${deteils.poster_path}` :
                             'https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=400x500'}
@@ -58,9 +61,5 @@ export const MovieDetails = () => {
         </>
     );
 };
-
-
-
-
 
 

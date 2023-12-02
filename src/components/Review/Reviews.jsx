@@ -7,7 +7,7 @@ import { GoArrowLeft } from "react-icons/go";
 
 export const Reviews = () => {
     const location = useLocation();
-    console.log(location)
+    // console.log(location)
     const [review, setReview] = useState([]);
     // console.log(review);
     const params = useParams();

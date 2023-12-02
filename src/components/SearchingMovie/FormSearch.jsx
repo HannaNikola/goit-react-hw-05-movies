@@ -11,20 +11,25 @@ export const FormSearch = ({ onSubmit }) => {
 
         const handleChange = (event) => {
             setSearchParams({ movie: event.target.value.toLowerCase() });
+            
         };
 
         const handleSubmit = (event) => {
             event.preventDefault();
             onSubmit(searchParams);
-            setSearchParams({ movie: '' });
+            
+            // setSearchParams({ movie: '' });
         };
 
+    
+    
+    
+    
         return (
             <div>
               
                 <TitelSearch>Find movie</TitelSearch>
                 <FormSerach onSubmit={handleSubmit}>
-                    {/* <label > </label> */}
                     <input
                         type="text"
                         id="filter"
