@@ -7,7 +7,7 @@ import { BoxDeteils, LinkBack, StyledLink } from './MovieDeteils.styled'
 
 export const MovieDetails = () => {
     const location = useLocation();
-    console.log(location);
+    // console.log(location);
 
     const [deteils, setDeteils] = useState(null);
 
@@ -20,6 +20,7 @@ export const MovieDetails = () => {
             try {
                 const movieDateils = await fetchMovieDeteils(params.movieId);
                 setDeteils(movieDateils);
+               
             } catch (error) {
                 console.log('something wrong', error);
             }

@@ -4,6 +4,7 @@ import { LinkStyle } from "./ListMovies.styled";
 
 export const ListMovie = ({ movies }) => {
     const location = useLocation();
+    console.log(location);
     return (
         <ul>
             {movies.map((movie) => (
